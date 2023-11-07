@@ -7,7 +7,7 @@ export interface FlexProps extends React.ComponentPropsWithoutRef<"div"> {
     align?: "stretch" | "start" | "center" | "end" | "baseline";
     justify?: "start" | "center" | "end" | "between" | "around";
     wrap?: "nowrap" | "wrap" | "wrap-reverse";
-    gap?: number;
+    gap?: string;
     props?: any;
 }
 declare const Flex: React.ForwardRefExoticComponent<FlexProps & React.RefAttributes<HTMLDivElement>>;

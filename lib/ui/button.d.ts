@@ -1,7 +1,7 @@
 import * as React from "react";
 import { type VariantProps } from "class-variance-authority";
 declare const buttonVariants: (props?: ({
-    variant?: "default" | "outline" | "ghost" | "link" | "icon" | null | undefined;
+    variant?: "link" | "default" | "outline" | "ghost" | "icon" | null | undefined;
     size?: "default" | "sm" | "lg" | null | undefined;
     color?: "default" | "primary" | "secondary" | "success" | "warning" | "danger" | "primary-light" | "secondary-light" | "success-light" | "warning-light" | "danger-light" | null | undefined;
 } & import("class-variance-authority/types").ClassProp) | undefined) => string;

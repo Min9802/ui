@@ -1,5 +1,3 @@
-declare const Toaster: {
-    (): import("react/jsx-runtime").JSX.Element;
-    displayName: string;
-};
+/// <reference types="react" />
+declare const Toaster: React.FC;
 export { Toaster };
