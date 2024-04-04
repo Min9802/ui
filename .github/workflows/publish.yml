@@ -14,7 +14,7 @@ jobs:
           node-version: "20.x"
           registry-url: "https://registry.npmjs.org"
           scope: "@min98"
-      - run: npm install
+      # - run: npm install
       - run: npm ci
       - run: npm publish --access=public
         env:

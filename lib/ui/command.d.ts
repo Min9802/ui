@@ -6,9 +6,11 @@ declare const Command: React.ForwardRefExoticComponent<Omit<{
     label?: string | undefined;
     shouldFilter?: boolean | undefined;
     filter?: ((value: string, search: string) => number) | undefined;
+    defaultValue?: string | undefined;
     value?: string | undefined;
     onValueChange?: ((value: string) => void) | undefined;
     loop?: boolean | undefined;
+    vimBindings?: boolean | undefined;
 } & React.RefAttributes<HTMLDivElement>, "ref"> & React.RefAttributes<HTMLDivElement>>;
 interface CommandDialogProps extends DialogProps {
 }
@@ -31,6 +33,7 @@ declare const CommandGroup: React.ForwardRefExoticComponent<Omit<{
 } & Omit<React.HTMLAttributes<HTMLDivElement>, "value" | "heading"> & {
     heading?: React.ReactNode;
     value?: string | undefined;
+    forceMount?: boolean | undefined;
 } & React.RefAttributes<HTMLDivElement>, "ref"> & React.RefAttributes<HTMLDivElement>>;
 declare const CommandSeparator: React.ForwardRefExoticComponent<Omit<React.HTMLAttributes<HTMLDivElement> & {
     alwaysRender?: boolean | undefined;
@@ -41,6 +44,7 @@ declare const CommandItem: React.ForwardRefExoticComponent<Omit<{
     disabled?: boolean | undefined;
     onSelect?: ((value: string) => void) | undefined;
     value?: string | undefined;
+    forceMount?: boolean | undefined;
 } & React.RefAttributes<HTMLDivElement>, "ref"> & React.RefAttributes<HTMLDivElement>>;
 declare const CommandShortcut: {
     ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>): import("react/jsx-runtime").JSX.Element;

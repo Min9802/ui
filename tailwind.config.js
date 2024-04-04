@@ -49,7 +49,7 @@ module.exports = {
           className
         }) => {
           const newClass = e(`outlined${separator}${className}`);
-          return `.${newClass}`;
+          return `:is(.icon.${newClass})`;
         });
       });
     }),

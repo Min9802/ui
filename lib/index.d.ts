@@ -10,6 +10,7 @@ export { Calendar } from "./ui/calendar";
 export { DateTimePicker } from "./ui/DateTime/DateTimePicker";
 export { DatePickerRange } from "./ui/DateTime/DatePickerRange";
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, } from "./ui/card";
+export { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, } from "./ui/carousel";
 export { Checkbox } from "./ui/checkbox";
 export { Collapsible, CollapsibleTrigger, CollapsibleContent } from "./ui/collapsible";
 export { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, } from "./ui/command";
@@ -58,5 +59,6 @@ export { RenderMenu, Dropdown, type DropdownProps, type DropdownMenuProps, type 
 export { Loader } from "./ui/Loader/index";
 export { SheetCustom, type SheetProps } from "./ui/Sheet/SheetCustom";
 export { useToast, toast } from "./ui/use-toast";
-export { cn } from "./utils/utils";
+export { cn, repeat } from "./utils/utils";
 export { useLocalStorage } from "./utils/useLocalStorage";
+export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from "./ui/input-otp";
