@@ -1,6 +1,6 @@
 {
   "name": "@min98/ui",
-  "version": "1.1.90",
+  "version": "1.1.91",
   "description": "Package UI using shadcn/ui",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
