@@ -18,4 +18,8 @@ export interface CKEDITOR {
     onFocus?: (event: EventInfo, editor: any) => void;
     onChange?: (event: EventInfo, editor: any) => void;
 }
+export interface EditorRef {
+    CKEditor?: any;
+    EditorCustom?: any;
+}
 export declare const CkEditorCustom: React.FC<CKEDITOR>;
