@@ -1,6 +1,6 @@
 {
   "name": "@min98/ui",
-  "version": "1.1.91",
+  "version": "1.2.15",
   "description": "Package UI using shadcn/ui",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,9 +9,15 @@
   "files": [
     "lib"
   ],
-  "exports": "./lib/index.js",
+  "exports": {
+    "types": "./lib/index.d.ts",
+    "require": "./lib/index.cjs",
+    "import": "./lib/index.js",
+    "default": "./lib/index.js"
+  },
   "scripts": {
-    "build": "tsc"
+    "dev": "tsup --watch",
+    "build": "tsup"
   },
   "keywords": [
     "ui",
@@ -34,6 +40,7 @@
     "postcss": "^8.4.29",
     "rimraf": "^5.0.1",
     "tailwindcss": "^3.3.3",
+    "tsup": "^8.0.2",
     "typescript": "^5.2.2"
   },
   "dependencies": {
@@ -97,8 +104,5 @@
   "bugs": {
     "url": "https://github.com/Min9802/ui/issues"
   },
-  "homepage": "https://github.com/Min9802/ui#readme",
-  "directories": {
-    "lib": "lib"
-  }
+  "homepage": "https://github.com/Min9802/ui#readme"
 }
