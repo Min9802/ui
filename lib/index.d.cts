@@ -487,7 +487,7 @@ declare const TooltipContent: React$1.ForwardRefExoticComponent<Omit<TooltipPrim
 
 type OptionMutiSelect = {
     value?: number | string;
-    text?: string;
+    label?: string;
     disabled?: boolean;
 };
 interface MultipleSelectProps extends Omit<InputHTMLAttributes<HTMLSelectElement>, "option"> {
@@ -516,11 +516,13 @@ interface MultipleSelectProps extends Omit<InputHTMLAttributes<HTMLSelectElement
      * @controllable onChange
      */
     value?: string | number | string[];
+    tags?: boolean;
     callback?: (agr: any) => void;
 }
 declare const MultipleSelect: React__default.FC<MultipleSelectProps>;
 
 interface InputFormProps extends React__default.InputHTMLAttributes<HTMLInputElement> {
+    className?: string;
     control?: any;
     label?: string;
     name?: any;
@@ -541,6 +543,7 @@ type OptionComboBoxProps = {
 };
 interface ComboBoxProps {
     options?: OptionComboBoxProps[] | any;
+    selected?: string | number;
     callback?: (agr: any) => void;
 }
 declare const ComboBox: React$1.FC<ComboBoxProps>;
@@ -711,7 +714,9 @@ interface DataTableProps {
     data: any[];
     columns: any[];
     search?: string;
+    hiden?: string[];
     callBack?: (arg: any) => void;
+    action?: string | React$1.ReactNode;
 }
 declare const DataTable: React$1.FC<DataTableProps>;
 
