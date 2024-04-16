@@ -1,6 +1,6 @@
 {
   "name": "@min98/ui",
-  "version": "1.2.25",
+  "version": "1.2.26",
   "description": "Package UI using shadcn/ui",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -92,6 +92,7 @@
     "react": "^18.2.0",
     "react-aria": "^3.29.1",
     "react-day-picker": "^8.8.2",
+    "react-draggable": "^4.4.6",
     "react-hook-form": "^7.44.2",
     "react-stately": "^3.27.1",
     "tailwind-merge": "^1.14.0",

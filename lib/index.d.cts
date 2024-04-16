@@ -698,7 +698,7 @@ interface AlertDialogProps {
 }
 declare const Modal: React__default.FC<AlertDialogProps>;
 
-interface DialogModalProps {
+interface DialogModalProps extends React__default.ComponentPropsWithoutRef<"div"> {
     className?: string;
     open: boolean;
     title?: string;
@@ -707,8 +707,10 @@ interface DialogModalProps {
     children?: React__default.ReactNode;
     action?: (data?: any) => void;
     cancel: () => void;
+    draggable?: boolean;
+    props?: any;
 }
-declare const DialogModal: React__default.FC<DialogModalProps>;
+declare const DialogModal: React__default.ForwardRefExoticComponent<DialogModalProps & React__default.RefAttributes<HTMLDivElement>>;
 
 interface DataTableProps {
     data: any[];
