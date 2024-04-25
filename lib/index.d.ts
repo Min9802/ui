@@ -35,6 +35,7 @@ import * as ToastPrimitives from '@radix-ui/react-toast';
 import * as TogglePrimitive from '@radix-ui/react-toggle';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import { EventInfo } from '@ckeditor/ckeditor5-utils';
+import { PaginationState } from '@tanstack/react-table';
 import { ClassValue } from 'clsx';
 import * as input_otp from 'input-otp';
 
@@ -515,7 +516,7 @@ interface MultipleSelectProps extends Omit<InputHTMLAttributes<HTMLSelectElement
      *
      * @controllable onChange
      */
-    value?: string | number | string[];
+    selected?: string | number | string[];
     tags?: boolean;
     callback?: (agr: any) => void;
 }
@@ -716,10 +717,19 @@ interface DataTableProps {
     data: any[];
     columns: any[];
     search?: string;
-    hiden?: string[];
+    hidden?: string[];
+    pagination?: any;
+    pageCount?: number;
+    onPaginationChange?: (arg: any) => void;
     callBack?: (arg: any) => void;
     action?: string | React$1.ReactNode;
 }
+declare const usePagination: () => {
+    limit: number;
+    onPaginationChange: React$1.Dispatch<React$1.SetStateAction<PaginationState>>;
+    pagination: PaginationState;
+    skip: number;
+};
 declare const DataTable: React$1.FC<DataTableProps>;
 
 type ButtonGroupProps = {
@@ -864,4 +874,106 @@ declare const InputOTPSlot: React$1.ForwardRefExoticComponent<Omit<React$1.Detai
 } & React$1.RefAttributes<HTMLDivElement>>;
 declare const InputOTPSeparator: React$1.ForwardRefExoticComponent<Omit<React$1.DetailedHTMLProps<React$1.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, type AlertDialogProps, AlertDialogTitle, AlertDialogTrigger, AlertTitle, type ApiInterface, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Button, ButtonGroup, type ButtonGroupProps, type ButtonProps, type CKEDITOR, Calendar, Card, CardContent, CardDescription, CardFooter, CardHeader, CardMini, CardTitle, Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Checkbox, CkEditorCustom, CloseButton, type CloseButtonProps, Col, type ColProps, Collapsible, CollapsibleContent, CollapsibleTrigger, ComboBox, type ComboBoxProps, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, type Config, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuCustom, ContextMenuGroup, ContextMenuItem, ContextMenuLabel, ContextMenuPortal, type ContextMenuProps, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, type ContextMenuType, DataTable, type DataTableProps, DatePickerRange, DateTimePicker, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogModal, type DialogModalProps, DialogTitle, DialogTrigger, type Directory, Dropdown, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, type DropdownMenuProps, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, type DropdownProps, type FileLoader, Flex, type FlexProps, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, Grid, type GridProps, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputForm, type InputFormProps, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, type ItemProps, Label, Loader, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, Modal, MultipleSelect, type MultipleSelectProps, NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, type OptionComboBoxProps, type OptionMutiSelect, type Params, type PluginInterface, Popover, PopoverContent, PopoverTrigger, Progress, type PropsCard, RadioGroup, RadioGroupItem, RenderMenu, type RenderMenuProps, type Resolving, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Server, type ServerInterface, Sheet, SheetClose, SheetContent, SheetCustom, SheetDescription, SheetFooter, SheetHeader, type SheetProps, SheetTitle, SheetTrigger, Skeleton, Slider, Switch, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, Toast$1 as Toast, ToastAction, type ToastActionElement, ToastClose, ToastDescription, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipArrow, TooltipContent, TooltipPortal, TooltipProvider, TooltipTrigger, UploadAdapter, alertVariants, badgeVariants, buttonVariants, cn, navigationMenuTriggerStyle, repeat, toast, toggleVariants, useFormField, useLocalStorage, useToast };
+interface Hour {
+    number: string;
+    translatedValue: string;
+    selected?: boolean;
+    arrayNumber?: number;
+}
+interface HourFormatProps {
+    height: number;
+    setHourFormat: (format: any) => void;
+    hourFormat: any;
+}
+declare const HourFormat: React__default.FC<HourFormatProps>;
+
+interface Hours {
+    number: string;
+    translatedValue: string;
+    selected: boolean;
+    hidden?: boolean;
+}
+interface HourWheelProps {
+    height: number;
+    value: string;
+    setValue: (value: any) => void;
+    use12Hours?: boolean;
+}
+declare const HourWheel: React__default.FC<HourWheelProps>;
+
+interface Minute {
+    number: string;
+    translatedValue: string;
+    selected: boolean;
+}
+interface MinuteWheelProps {
+    height: number;
+    value: string;
+    setValue: (value: any) => void;
+}
+declare const MinuteWheel: React__default.FC<MinuteWheelProps>;
+
+interface PickerEffectsProps {
+    height: number;
+}
+declare const PickerEffects: React__default.FC<PickerEffectsProps>;
+
+interface TimePickerSelectionProps {
+    pickerDefaultValue?: string;
+    initialValue: string;
+    onChange?: (value: string) => void;
+    height?: number;
+    onSave?: (value: string) => void;
+    onCancel?: () => void;
+    cancelButtonText?: string;
+    saveButtonText?: string;
+    controllers?: boolean;
+    setInputValue: (value: string | null) => void;
+    setIsOpen: (isOpen: boolean) => void;
+    seperator?: boolean;
+    use12Hours?: boolean;
+    onAmPmChange?: (value: string) => void;
+}
+declare const TimePickerSelection: React__default.FC<TimePickerSelectionProps>;
+
+interface TimePickerProps extends Omit<TimePickerSelectionProps, "setInputValue" | "setIsOpen" | "initialValue" | "onFinish"> {
+    className?: string;
+    value?: string | null;
+    height?: number;
+    cellHeight?: number;
+    placeHolder?: string;
+    pickerDefaultValue?: string;
+    onChange?: (value: string) => void;
+    onFinish?: (payload?: any) => void;
+    onFocus?: () => void;
+    onSave?: () => void;
+    onCancel?: () => void;
+    disabled?: boolean;
+    open?: boolean;
+    required?: boolean;
+    cancelButtonText?: string;
+    saveButtonText?: string;
+    controllers?: boolean;
+    seperator?: boolean;
+    id?: string | null;
+    use12Hours?: boolean;
+    onAmPmChange?: () => void;
+    name?: string | null;
+    onOpen?: () => void;
+    inputClassName?: string | null;
+}
+declare const TimePicker: React__default.FC<TimePickerProps>;
+
+declare const initialNumbersValue: (heightValue?: number, numbersLength?: number, value?: number | null) => {
+    number: string;
+    translatedValue: string;
+    selected: boolean;
+    hidden?: boolean;
+}[];
+declare const returnSelectedValue: (heightValue?: number, numbersLength?: number) => {
+    number: string;
+    translatedValue: string;
+    arrayNumber: number;
+}[];
+
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, type AlertDialogProps, AlertDialogTitle, AlertDialogTrigger, AlertTitle, type ApiInterface, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Button, ButtonGroup, type ButtonGroupProps, type ButtonProps, type CKEDITOR, Calendar, Card, CardContent, CardDescription, CardFooter, CardHeader, CardMini, CardTitle, Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Checkbox, CkEditorCustom, CloseButton, type CloseButtonProps, Col, type ColProps, Collapsible, CollapsibleContent, CollapsibleTrigger, ComboBox, type ComboBoxProps, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, type Config, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuCustom, ContextMenuGroup, ContextMenuItem, ContextMenuLabel, ContextMenuPortal, type ContextMenuProps, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, type ContextMenuType, DataTable, type DataTableProps, DatePickerRange, DateTimePicker, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogModal, type DialogModalProps, DialogTitle, DialogTrigger, type Directory, Dropdown, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, type DropdownMenuProps, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, type DropdownProps, type FileLoader, Flex, type FlexProps, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, Grid, type GridProps, type Hour, HourFormat, type HourFormatProps, HourWheel, type HourWheelProps, type Hours, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputForm, type InputFormProps, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, type ItemProps, Label, Loader, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, type Minute, MinuteWheel, type MinuteWheelProps, Modal, MultipleSelect, type MultipleSelectProps, NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, type OptionComboBoxProps, type OptionMutiSelect, type Params, PickerEffects, type PickerEffectsProps, type PluginInterface, Popover, PopoverContent, PopoverTrigger, Progress, type PropsCard, RadioGroup, RadioGroupItem, RenderMenu, type RenderMenuProps, type Resolving, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Server, type ServerInterface, Sheet, SheetClose, SheetContent, SheetCustom, SheetDescription, SheetFooter, SheetHeader, type SheetProps, SheetTitle, SheetTrigger, Skeleton, Slider, Switch, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, TimePicker, type TimePickerProps, TimePickerSelection, type TimePickerSelectionProps, Toast$1 as Toast, ToastAction, type ToastActionElement, ToastClose, ToastDescription, type ToastProps, ToastProvider, ToastTitle, ToastViewport, Toaster, Toggle, Tooltip, TooltipArrow, TooltipContent, TooltipPortal, TooltipProvider, TooltipTrigger, UploadAdapter, alertVariants, badgeVariants, buttonVariants, cn, initialNumbersValue, navigationMenuTriggerStyle, repeat, returnSelectedValue, toast, toggleVariants, useFormField, useLocalStorage, usePagination, useToast };
