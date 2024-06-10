@@ -654,11 +654,11 @@ declare const InputForm: React__default.FC<InputFormProps>;
 type OptionSelect = {
     disabled?: boolean;
     label?: string;
-    value?: string | number;
+    value?: string;
 };
 interface ComboBoxProps extends Omit<React$1.ButtonHTMLAttributes<HTMLButtonElement>, "options" | "selected" | "filter" | "onValueChange"> {
     options?: OptionSelect[] | any;
-    selected?: string | number;
+    selected?: string;
     filter?: ((value: string, search: string) => number) | undefined;
     onValueChange?: (value: any) => void;
     response?: boolean;
